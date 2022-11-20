@@ -11,20 +11,14 @@ import javax.swing.table.DefaultTableModel;
  * @author edgar
  */
 public class FrmVistaDatos extends javax.swing.JFrame {
-
     /**
      * Creates new form FrmVistaDatos
      */
     public FrmVistaDatos() {
         initComponents();
         FrmDatosPrenda datos = new FrmDatosPrenda();
-        String tela = datos.TelaElegida;
-        String talla = datos.TallaElegida;
-        int cantidades = datos.totalprenda;
 
         this.setLocationRelativeTo(null);
-        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
-        modelo.addRow(new Object[]{"Pantalon", tela, talla, cantidades});
 //modelo.removeRow(modelo.getRowCount()-1); eliminar una fila
 /*
 int filas = modelo.getRowCount();
@@ -45,6 +39,15 @@ modelo.removeRow(0);
 
         jPanel3 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jTextPrenda = new javax.swing.JTextField();
+        jTextTela = new javax.swing.JTextField();
+        jTextCantidad = new javax.swing.JTextField();
+        jTextTalla = new javax.swing.JTextField();
+        jTextPrendaPantalon = new javax.swing.JTextField();
+        jTextTelaPantalon = new javax.swing.JTextField();
+        jTextTallaPantalon = new javax.swing.JTextField();
+        jTextCantidadPantalon = new javax.swing.JTextField();
         panel1 = new java.awt.Panel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -55,8 +58,6 @@ modelo.removeRow(0);
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,6 +68,62 @@ modelo.removeRow(0);
         jPanel2.setMinimumSize(new java.awt.Dimension(1150, 630));
         jPanel2.setPreferredSize(new java.awt.Dimension(1150, 630));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTextPrenda.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextPrenda.setText(" Prenda");
+        jPanel1.add(jTextPrenda, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 235, 30));
+
+        jTextTela.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextTela.setText("Tipo de tela");
+        jTextTela.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextTelaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTextTela, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 0, 235, 30));
+
+        jTextCantidad.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextCantidad.setText("Cantidad");
+        jPanel1.add(jTextCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(705, 0, 235, 30));
+
+        jTextTalla.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextTalla.setText("Talla");
+        jTextTalla.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextTallaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTextTalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 0, 235, 30));
+
+        jTextPrendaPantalon.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextPrendaPantalon.setText("Pantalon");
+        jPanel1.add(jTextPrendaPantalon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 235, 30));
+
+        jTextTelaPantalon.setEditable(false);
+        jTextTelaPantalon.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextTelaPantalon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextTelaPantalonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTextTelaPantalon, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 30, 235, 30));
+
+        jTextTallaPantalon.setEditable(false);
+        jTextTallaPantalon.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextTallaPantalon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextTallaPantalonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTextTallaPantalon, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, 235, 30));
+
+        jTextCantidadPantalon.setEditable(false);
+        jTextCantidadPantalon.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jPanel1.add(jTextCantidadPantalon, new org.netbeans.lib.awtextra.AbsoluteConstraints(705, 30, 235, 30));
+
+        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 940, 310));
 
         panel1.setBackground(new java.awt.Color(96, 204, 225));
         panel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -123,31 +180,6 @@ modelo.removeRow(0);
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes1/image (1).png"))); // NOI18N
         jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 110));
 
-        jTable1.setAutoCreateRowSorter(true);
-        jTable1.setBackground(new java.awt.Color(255, 255, 255));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Prendas", "Tipo de tela", "Talla", "Cantidad"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jTable1.setOpaque(false);
-        jTable1.setSelectionBackground(new java.awt.Color(153, 153, 153));
-        jScrollPane1.setViewportView(jTable1);
-
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 920, 400));
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -196,6 +228,22 @@ modelo.removeRow(0);
         this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jTextTallaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextTallaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextTallaActionPerformed
+
+    private void jTextTelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextTelaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextTelaActionPerformed
+
+    private void jTextTelaPantalonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextTelaPantalonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextTelaPantalonActionPerformed
+
+    private void jTextTallaPantalonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextTallaPantalonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextTallaPantalonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -241,10 +289,17 @@ modelo.removeRow(0);
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    public static javax.swing.JTextField jTextCantidad;
+    public static javax.swing.JTextField jTextCantidadPantalon;
+    public static javax.swing.JTextField jTextPrenda;
+    public static javax.swing.JTextField jTextPrendaPantalon;
+    public static javax.swing.JTextField jTextTalla;
+    public static javax.swing.JTextField jTextTallaPantalon;
+    public static javax.swing.JTextField jTextTela;
+    public static javax.swing.JTextField jTextTelaPantalon;
     private java.awt.Panel panel1;
     // End of variables declaration//GEN-END:variables
 }

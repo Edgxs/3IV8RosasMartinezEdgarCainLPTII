@@ -24,6 +24,8 @@ public class FrmDatosPrenda extends javax.swing.JFrame {
     public FrmDatosPrenda() {
         initComponents();
         this.setLocationRelativeTo(null);
+        //FrmVistaDatos datos = new FrmVistaDatos();
+        //datos.setVisible(true);
         ButtonGroup grupo1 = new ButtonGroup();
         grupo1.add(jRBalgodon);
         grupo1.add(jRBlino);
@@ -456,6 +458,7 @@ public class FrmDatosPrenda extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldCantidadesKeyTyped
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
         int prenda = 0;
         int tela = 0;
         int talla = 0;
@@ -468,16 +471,20 @@ public class FrmDatosPrenda extends javax.swing.JFrame {
 //Selecccion de tela
             if (jRBalgodon.isSelected()) {
                 tela = 1;
-                TelaElegida = "Algodon";
+                TelaElegida = "Algodo";
+                FrmVistaDatos.jTextTelaPantalon.setText("Algodon");
             } else if (jRBlino.isSelected()) {
                 tela = 2;
                 TelaElegida = "Lino";
+                FrmVistaDatos.jTextTelaPantalon.setText("Lino");
             } else if (jRBmezclilla.isSelected()) {
                 tela = 3;
                 TelaElegida = "Mezclilla";
+                FrmVistaDatos.jTextTelaPantalon.setText("Mezclilla");
             } else if (jRBpoliester.isSelected()) {
                 tela = 4;
                 TelaElegida = "Poliester";
+                FrmVistaDatos.jTextTelaPantalon.setText("Poliester");
             } else {
                 JOptionPane.showMessageDialog(this, "Seleccione una tela");
             }
@@ -486,18 +493,23 @@ public class FrmDatosPrenda extends javax.swing.JFrame {
             if (jRBxch.isSelected()) {
                 talla = 1;
                 TallaElegida = "XCH";
+                FrmVistaDatos.jTextTallaPantalon.setText(TallaElegida);
             } else if (jRBch.isSelected()) {
                 talla = 2;
                 TallaElegida = "CH";
+                FrmVistaDatos.jTextTallaPantalon.setText(TallaElegida);
             } else if (jRBm.isSelected()) {
                 talla = 3;
+                FrmVistaDatos.jTextTallaPantalon.setText(TallaElegida);
                 TallaElegida = "M";
             } else if (jRBl.isSelected()) {
                 talla = 4;
                 TallaElegida = "L";
+                FrmVistaDatos.jTextTallaPantalon.setText(TallaElegida);
             } else if (jRBxl.isSelected()) {
                 talla = 5;
                 TallaElegida = "XL";
+                FrmVistaDatos.jTextTallaPantalon.setText(TallaElegida);
             } else {
                 JOptionPane.showMessageDialog(this, "Seleccione una talla");
             }
@@ -508,6 +520,7 @@ public class FrmDatosPrenda extends javax.swing.JFrame {
             }
             JOptionPane.showMessageDialog(this, "tela es: " + tela + "\n" + "talla es: " + talla + "\n" + "cantidad es: " + totalprenda);
             pantalon.DatosPantalon(tela, talla, totalprenda);
+            FrmVistaDatos.jTextCantidadPantalon.setText(Integer.toString(totalprenda));
 
         } else if (jCbPlayera.isSelected()) {
             Playera playera = new Playera();
