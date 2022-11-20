@@ -608,8 +608,8 @@ public class FrmDatosPrenda extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "tela es: " + tela + "\n" + "talla es: " + talla + "\n" + "cantidad es: " + totalprenda);
             camisa.DatosCamisa(tela, talla, totalprenda);
 
-
         } else if (jCbSudadera.isSelected()) {
+            Sudadera sudadera = new Sudadera();
             JOptionPane.showMessageDialog(this, "Selecciono Sudadera");
             prenda = 4;
 //Selecccion de tela
@@ -648,7 +648,16 @@ public class FrmDatosPrenda extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(this, "Seleccione una talla");
             }
+            if (FuncionesProgram.isNumeric(jTextFieldCantidades.getText())) {
+                JOptionPane.showMessageDialog(this, "Es numero");
+                totalprenda = Integer.parseInt(jTextFieldCantidades.getText());
+            } else {
+                JOptionPane.showMessageDialog(this, "Ingresa solo numeros o numeros menores a 30");
+            }
+            JOptionPane.showMessageDialog(this, "tela es: " + tela + "\n" + "talla es: " + talla + "\n" + "cantidad es: " + totalprenda);
+            sudadera.DatosSudadera(tela, talla, totalprenda);
         } else if (jCbSueter.isSelected()) {
+            Sueter sueter = new Sueter();
             JOptionPane.showMessageDialog(this, "Selecciono Sueter");
             prenda = 5;
 //Selecccion de tela
@@ -687,6 +696,14 @@ public class FrmDatosPrenda extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(this, "Seleccione una talla");
             }
+            if (FuncionesProgram.isNumeric(jTextFieldCantidades.getText())) {
+                JOptionPane.showMessageDialog(this, "Es numero");
+                totalprenda = Integer.parseInt(jTextFieldCantidades.getText());
+            } else {
+                JOptionPane.showMessageDialog(this, "Ingresa solo numeros o numeros menores a 30");
+            }
+            JOptionPane.showMessageDialog(this, "tela es: " + tela + "\n" + "talla es: " + talla + "\n" + "cantidad es: " + totalprenda);
+            sueter.DatosSueter(tela, talla, totalprenda);
         } else {
             JOptionPane.showMessageDialog(this, "Seleccione alguna de las prendas");
         }

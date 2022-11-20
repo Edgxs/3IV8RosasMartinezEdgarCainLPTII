@@ -1,9 +1,12 @@
 package principal;
+
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Iterator;
+import javax.swing.JOptionPane;
 
-class Sudadera extends Prenda {
+public class Sudadera extends Prenda {
+
     // super(ttalla, ttela);
     int h, t;
     Scanner in = new Scanner(System.in);
@@ -19,27 +22,12 @@ class Sudadera extends Prenda {
         this.t = t;
     }
 
-    public void DatosSudadera() {
-        System.out.println("Elije el tipo de tela del Sudadera" + "\n" + "1-Algodon" + "\n" + "2-Poliester");
-        try {
-            h = in.nextInt();
-
-        } catch (Exception e) {
-            System.out.println("Ingresa solo numeros");
-            in.nextLine();
-        }
+    public void DatosSudadera(int tela, int talla, int totalprenda) {
+        h = tela;
 
         switch (h) {
             case 1:
-                System.out.println("Elije la talla de Sudadera" + "\n" + "1-Extrachica" + "\n" + "2-Chica" + "\n"
-                        + "3-Mediana" + "\n" + "4-Grande" + "\n" + "5-Extragrande");
-                try {
-                    t = in.nextInt();
-
-                } catch (Exception e) {
-                    System.out.println("Ingresa solo numeros");
-                    in.nextLine();
-                }
+                t = talla;
                 switch (t) {
                     case 1:
                         cal3.setKgTejido(125);
@@ -69,15 +57,7 @@ class Sudadera extends Prenda {
                 }
                 break;
             case 2:
-                System.out.println("Elije la talla de Sudadera" + "\n" + "1-Extrachica" + "\n" + "2-Chica" + "\n"
-                        + "3-Mediana" + "\n" + "4-Grande" + "\n" + "5-Extragrande");
-                try {
-                    t = in.nextInt();
-
-                } catch (Exception e) {
-                    System.out.println("Ingresa solo numeros");
-                    in.nextLine();
-                }
+                t = talla;
 
                 switch (t) {
                     case 1:
@@ -108,15 +88,7 @@ class Sudadera extends Prenda {
                 }
                 break;
             case 3:
-                System.out.println("Elije la talla de Sudadera" + "\n" + "1-Extrachica" + "\n" + "2-Chica" + "\n"
-                        + "3-Mediana" + "\n" + "4-Grande" + "\n" + "5-Extragrande");
-                try {
-                    t = in.nextInt();
-
-                } catch (Exception e) {
-                    System.out.println("Ingresa solo numeros");
-                    in.nextLine();
-                }
+                t = talla;
 
                 switch (t) {
                     case 1:
@@ -148,6 +120,9 @@ class Sudadera extends Prenda {
                 break;
 
         }
+        Double resultadof = resultado3 * totalprenda;
+        JOptionPane.showMessageDialog(null, "El resultado del calculo es: " + resultado3);
+        JOptionPane.showMessageDialog(null, "El resultado de todo es: " + resultadof);
     }
 
     public static Double TotalSudadera(ArrayList<Double> calculos3) {

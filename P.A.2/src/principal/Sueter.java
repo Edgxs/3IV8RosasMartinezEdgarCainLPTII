@@ -3,8 +3,9 @@ package principal;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Iterator;
+import javax.swing.JOptionPane;
 
-class Sueter extends Prenda {
+public class Sueter extends Prenda {
 
     // super(ttalla, ttela);
     int h, t;
@@ -22,27 +23,12 @@ class Sueter extends Prenda {
         this.t = t;
     }
 
-    public void DatosSueter() {
+    public void DatosSueter(int tela, int talla, int totalprenda) {
         double resultado4 = 0.0;
-        System.out.println("Elije el tipo de tela del Sueter" + "\n" + "1-Algodon" + "\n" + "2-Lana");
-        try {
-            h = in.nextInt();
-
-        } catch (Exception e) {
-            System.out.println("Ingresa solo numeros");
-            in.nextLine();
-        }
+            h = tela;
         switch (h) {
             case 1:
-                System.out.println("Elije la talla de Sueter" + "\n" + "1-Extrachica" + "\n" + "2-Chica" + "\n"
-                        + "3-Mediana" + "\n" + "4-Grande" + "\n" + "5-Extragrande");
-                try {
-                    t = in.nextInt();
-
-                } catch (Exception e) {
-                    System.out.println("Ingresa solo numeros");
-                    in.nextLine();
-                }
+                    t = talla;
 
                 switch (t) {
                     case 1:
@@ -73,15 +59,7 @@ class Sueter extends Prenda {
                 }
                 break;
             case 2:
-                System.out.println("Elije la talla de Sueter" + "\n" + "1-Extrachica" + "\n" + "2-Chica" + "\n"
-                        + "3-Mediana" + "\n" + "4-Grande" + "\n" + "5-Extragrande");
-                try {
-                    t = in.nextInt();
-
-                } catch (Exception e) {
-                    System.out.println("Ingresa solo numeros");
-                    in.nextLine();
-                }
+                    t = talla;
                 switch (t) {
                     case 1:
                         cal4.setKgTejido(124);
@@ -112,6 +90,9 @@ class Sueter extends Prenda {
                 break;
 
         }
+Double resultadof = resultado4 * totalprenda;
+        JOptionPane.showMessageDialog(null, "El resultado del calculo es: " + resultado4);
+        JOptionPane.showMessageDialog(null, "El resultado de todo es: " + resultadof);
     }
 
     public static Double TotalSueter(ArrayList<Double> calculos4) {
