@@ -17,9 +17,14 @@ public class FrmVistaDatos extends javax.swing.JFrame {
      */
     public FrmVistaDatos() {
         initComponents();
+        FrmDatosPrenda datos = new FrmDatosPrenda();
+        String tela = datos.TelaElegida;
+        String talla = datos.TallaElegida;
+        int cantidades = datos.totalprenda;
+
         this.setLocationRelativeTo(null);
         DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
-        modelo.addRow(new Object[]{"1", "2", "3", "4"});
+        modelo.addRow(new Object[]{"Pantalon", tela, talla, cantidades});
 //modelo.removeRow(modelo.getRowCount()-1); eliminar una fila
 /*
 int filas = modelo.getRowCount();

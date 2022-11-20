@@ -14,6 +14,10 @@ import principal.*;
  */
 public class FrmDatosPrenda extends javax.swing.JFrame {
 
+    String TelaElegida = "";
+    String TallaElegida = "";
+    int totalprenda = 0;
+
     /**
      * Creates new form DatosPrenda
      */
@@ -433,8 +437,8 @@ public class FrmDatosPrenda extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonNextActionPerformed
 
     private void jButtonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegresarActionPerformed
-        FrmSeleccionPrenda seleccion = new FrmSeleccionPrenda();
-        seleccion.setVisible(true);
+        FrmPrincipal principal = new FrmPrincipal();
+        principal.setVisible(true);
         this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_jButtonRegresarActionPerformed
 
@@ -455,53 +459,49 @@ public class FrmDatosPrenda extends javax.swing.JFrame {
         int prenda = 0;
         int tela = 0;
         int talla = 0;
-        int totalprenda = 0;
 
 //Seleccion de prenda
         if (jCbPantalon.isSelected()) {
             Pantalon pantalon = new Pantalon();
-
-            JOptionPane.showMessageDialog(this, "Selecciono Pantalon");
             prenda = 1;
 
 //Selecccion de tela
             if (jRBalgodon.isSelected()) {
-                JOptionPane.showMessageDialog(this, "Selecciono Algodon");
                 tela = 1;
+                TelaElegida = "Algodon";
             } else if (jRBlino.isSelected()) {
-                JOptionPane.showMessageDialog(this, "Selecciono Lino");
                 tela = 2;
+                TelaElegida = "Lino";
             } else if (jRBmezclilla.isSelected()) {
-                JOptionPane.showMessageDialog(this, "Selecciono Mezclilla");
                 tela = 3;
+                TelaElegida = "Mezclilla";
             } else if (jRBpoliester.isSelected()) {
-                JOptionPane.showMessageDialog(this, "Selecciono Poliester");
                 tela = 4;
+                TelaElegida = "Poliester";
             } else {
                 JOptionPane.showMessageDialog(this, "Seleccione una tela");
             }
 
 //Seleccion de talla
             if (jRBxch.isSelected()) {
-                JOptionPane.showMessageDialog(this, "Selecciono XCH");
                 talla = 1;
+                TallaElegida = "XCH";
             } else if (jRBch.isSelected()) {
-                JOptionPane.showMessageDialog(this, "Selecciono CH");
                 talla = 2;
+                TallaElegida = "CH";
             } else if (jRBm.isSelected()) {
-                JOptionPane.showMessageDialog(this, "Selecciono M");
                 talla = 3;
+                TallaElegida = "M";
             } else if (jRBl.isSelected()) {
-                JOptionPane.showMessageDialog(this, "Selecciono L");
                 talla = 4;
+                TallaElegida = "L";
             } else if (jRBxl.isSelected()) {
-                JOptionPane.showMessageDialog(this, "Selecciono XL");
                 talla = 5;
+                TallaElegida = "XL";
             } else {
                 JOptionPane.showMessageDialog(this, "Seleccione una talla");
             }
             if (FuncionesProgram.isNumeric(jTextFieldCantidades.getText())) {
-                JOptionPane.showMessageDialog(this, "Es numero");
                 totalprenda = Integer.parseInt(jTextFieldCantidades.getText());
             } else {
                 JOptionPane.showMessageDialog(this, "Ingresa solo numeros o numeros menores a 30");
@@ -511,47 +511,45 @@ public class FrmDatosPrenda extends javax.swing.JFrame {
 
         } else if (jCbPlayera.isSelected()) {
             Playera playera = new Playera();
-            JOptionPane.showMessageDialog(this, "Selecciono Playera");
             prenda = 2;
 //Selecccion de tela
             if (jRBalgodon.isSelected()) {
-                JOptionPane.showMessageDialog(this, "Selecciono Algodon");
                 tela = 1;
+                TelaElegida = "Algodon";
             } else if (jRBlino.isSelected()) {
-                JOptionPane.showMessageDialog(this, "Selecciono Lino");
                 tela = 2;
+                TelaElegida = "Lino";
             } else if (jRBmezclilla.isSelected()) {
-                JOptionPane.showMessageDialog(this, "Selecciono Mezclilla");
                 tela = 3;
+                TelaElegida = "Mezclilla";
             } else if (jRBpoliester.isSelected()) {
-                JOptionPane.showMessageDialog(this, "Selecciono Poliester");
                 tela = 4;
+                TelaElegida = "Poliester";
             } else {
                 JOptionPane.showMessageDialog(this, "Seleccione una tela");
             }
 
 //Seleccion de talla
             if (jRBxch.isSelected()) {
-                JOptionPane.showMessageDialog(this, "Selecciono XCH");
                 talla = 1;
+                TallaElegida = "XCH";
             } else if (jRBch.isSelected()) {
-                JOptionPane.showMessageDialog(this, "Selecciono CH");
                 talla = 2;
+                TallaElegida = "CH";
             } else if (jRBm.isSelected()) {
-                JOptionPane.showMessageDialog(this, "Selecciono M");
                 talla = 3;
+                TallaElegida = "M";
             } else if (jRBl.isSelected()) {
-                JOptionPane.showMessageDialog(this, "Selecciono L");
                 talla = 4;
+                TallaElegida = "L";
             } else if (jRBxl.isSelected()) {
-                JOptionPane.showMessageDialog(this, "Selecciono XL");
                 talla = 5;
+                TallaElegida = "XL";
             } else {
                 JOptionPane.showMessageDialog(this, "Seleccione una talla");
             }
 
             if (FuncionesProgram.isNumeric(jTextFieldCantidades.getText())) {
-                JOptionPane.showMessageDialog(this, "Es numero");
                 totalprenda = Integer.parseInt(jTextFieldCantidades.getText());
             } else {
                 JOptionPane.showMessageDialog(this, "Ingresa solo numeros o numeros menores a 30");
@@ -561,46 +559,44 @@ public class FrmDatosPrenda extends javax.swing.JFrame {
 
         } else if (jCbCamisa.isSelected()) {
             Camisa camisa = new Camisa();
-            JOptionPane.showMessageDialog(this, "Selecciono Camisa");
             prenda = 3;
 //Selecccion de tela
             if (jRBalgodon.isSelected()) {
-                JOptionPane.showMessageDialog(this, "Selecciono Algodon");
                 tela = 1;
+                TelaElegida = "Algodon";
             } else if (jRBlino.isSelected()) {
-                JOptionPane.showMessageDialog(this, "Selecciono Lino");
                 tela = 2;
+                TelaElegida = "Lino";
             } else if (jRBmezclilla.isSelected()) {
-                JOptionPane.showMessageDialog(this, "Selecciono Mezclilla");
                 tela = 3;
+                TelaElegida = "Mezclilla";
             } else if (jRBpoliester.isSelected()) {
-                JOptionPane.showMessageDialog(this, "Selecciono Poliester");
                 tela = 4;
+                TelaElegida = "Poliester";
             } else {
-                JOptionPane.showMessageDialog(this, "Seleccione una tela");
+                JOptionPane.showMessageDialog(this, "Selecciono una tela");
             }
 
 //Seleccion de talla
             if (jRBxch.isSelected()) {
-                JOptionPane.showMessageDialog(this, "Selecciono XCH");
                 talla = 1;
+                TallaElegida = "XCH";
             } else if (jRBch.isSelected()) {
-                JOptionPane.showMessageDialog(this, "Selecciono CH");
                 talla = 2;
+                TallaElegida = "CH";
             } else if (jRBm.isSelected()) {
-                JOptionPane.showMessageDialog(this, "Selecciono M");
                 talla = 3;
+                TallaElegida = "M";
             } else if (jRBl.isSelected()) {
-                JOptionPane.showMessageDialog(this, "Selecciono L");
                 talla = 4;
+                TallaElegida = "L";
             } else if (jRBxl.isSelected()) {
-                JOptionPane.showMessageDialog(this, "Selecciono XL");
                 talla = 5;
+                TallaElegida = "XL";
             } else {
                 JOptionPane.showMessageDialog(this, "Seleccione una talla");
             }
             if (FuncionesProgram.isNumeric(jTextFieldCantidades.getText())) {
-                JOptionPane.showMessageDialog(this, "Es numero");
                 totalprenda = Integer.parseInt(jTextFieldCantidades.getText());
             } else {
                 JOptionPane.showMessageDialog(this, "Ingresa solo numeros o numeros menores a 30");
@@ -610,46 +606,44 @@ public class FrmDatosPrenda extends javax.swing.JFrame {
 
         } else if (jCbSudadera.isSelected()) {
             Sudadera sudadera = new Sudadera();
-            JOptionPane.showMessageDialog(this, "Selecciono Sudadera");
             prenda = 4;
 //Selecccion de tela
             if (jRBalgodon.isSelected()) {
-                JOptionPane.showMessageDialog(this, "Selecciono Algodon");
                 tela = 1;
+                TelaElegida = "Algodon";
             } else if (jRBlino.isSelected()) {
-                JOptionPane.showMessageDialog(this, "Selecciono Lino");
                 tela = 2;
+                TelaElegida = "Lino";
             } else if (jRBmezclilla.isSelected()) {
-                JOptionPane.showMessageDialog(this, "Selecciono Mezclilla");
                 tela = 3;
+                TelaElegida = "Mezclilla";
             } else if (jRBpoliester.isSelected()) {
-                JOptionPane.showMessageDialog(this, "Selecciono Poliester");
                 tela = 4;
+                TelaElegida = "Poliester";
             } else {
                 JOptionPane.showMessageDialog(this, "Seleccione una tela");
             }
 
 //Seleccion de talla
             if (jRBxch.isSelected()) {
-                JOptionPane.showMessageDialog(this, "Selecciono XCH");
                 talla = 1;
+                TallaElegida = "XCH";
             } else if (jRBch.isSelected()) {
-                JOptionPane.showMessageDialog(this, "Selecciono CH");
                 talla = 2;
+                TallaElegida = "CH";
             } else if (jRBm.isSelected()) {
-                JOptionPane.showMessageDialog(this, "Selecciono M");
                 talla = 3;
+                TallaElegida = "M";
             } else if (jRBl.isSelected()) {
-                JOptionPane.showMessageDialog(this, "Selecciono L");
                 talla = 4;
+                TallaElegida = "L";
             } else if (jRBxl.isSelected()) {
-                JOptionPane.showMessageDialog(this, "Selecciono XL");
                 talla = 5;
+                TallaElegida = "XL";
             } else {
                 JOptionPane.showMessageDialog(this, "Seleccione una talla");
             }
             if (FuncionesProgram.isNumeric(jTextFieldCantidades.getText())) {
-                JOptionPane.showMessageDialog(this, "Es numero");
                 totalprenda = Integer.parseInt(jTextFieldCantidades.getText());
             } else {
                 JOptionPane.showMessageDialog(this, "Ingresa solo numeros o numeros menores a 30");
@@ -658,46 +652,44 @@ public class FrmDatosPrenda extends javax.swing.JFrame {
             sudadera.DatosSudadera(tela, talla, totalprenda);
         } else if (jCbSueter.isSelected()) {
             Sueter sueter = new Sueter();
-            JOptionPane.showMessageDialog(this, "Selecciono Sueter");
             prenda = 5;
 //Selecccion de tela
             if (jRBalgodon.isSelected()) {
-                JOptionPane.showMessageDialog(this, "Selecciono Algodon");
                 tela = 1;
+                TelaElegida = "Algodon";
             } else if (jRBlino.isSelected()) {
-                JOptionPane.showMessageDialog(this, "Selecciono Lino");
                 tela = 2;
+                TelaElegida = "Mezclilla";
             } else if (jRBmezclilla.isSelected()) {
-                JOptionPane.showMessageDialog(this, "Selecciono Mezclilla");
                 tela = 3;
+                TelaElegida = "Lino";
             } else if (jRBpoliester.isSelected()) {
-                JOptionPane.showMessageDialog(this, "Selecciono Poliester");
                 tela = 4;
+                TelaElegida = "Poliester";
             } else {
                 JOptionPane.showMessageDialog(this, "Seleccione una tela");
             }
 
 //Seleccion de talla
             if (jRBxch.isSelected()) {
-                JOptionPane.showMessageDialog(this, "Selecciono XCH");
                 talla = 1;
+                TallaElegida = "XCH";
             } else if (jRBch.isSelected()) {
-                JOptionPane.showMessageDialog(this, "Selecciono CH");
                 talla = 2;
+                TallaElegida = "CH";
             } else if (jRBm.isSelected()) {
-                JOptionPane.showMessageDialog(this, "Selecciono M");
                 talla = 3;
+                TallaElegida = "M";
             } else if (jRBl.isSelected()) {
-                JOptionPane.showMessageDialog(this, "Selecciono L");
                 talla = 4;
+                TallaElegida = "L";
             } else if (jRBxl.isSelected()) {
-                JOptionPane.showMessageDialog(this, "Selecciono XL");
                 talla = 5;
+                TallaElegida = "XL";
             } else {
                 JOptionPane.showMessageDialog(this, "Seleccione una talla");
             }
             if (FuncionesProgram.isNumeric(jTextFieldCantidades.getText())) {
-                JOptionPane.showMessageDialog(this, "Es numero");
                 totalprenda = Integer.parseInt(jTextFieldCantidades.getText());
             } else {
                 JOptionPane.showMessageDialog(this, "Ingresa solo numeros o numeros menores a 30");
