@@ -1,0 +1,81 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package iniciosesion;
+
+import java.util.*;
+import java.io.*;
+import javax.swing.JOptionPane;
+import vistas.*;
+
+/**
+ *
+ * @author edgar
+ */
+public class Funciones extends javax.swing.JFrame {
+
+    ArrayList<UsuarioPrincipal> listausuarios = new ArrayList();
+    
+    String user = "";
+    String nombre = "";
+    String pass = "";
+    String genero = "";
+    String alcaldia = "";
+
+    UsuarioPrincipal usuarios = new UsuarioPrincipal();
+
+    public Funciones() {
+    }
+
+    public void guardarUsuario(UsuarioPrincipal up) throws IOException {
+        listausuarios.add(up);
+        guardar();
+    }
+
+    public void leerUsuario() throws FileNotFoundException, ClassNotFoundException, IOException {
+
+        //tengo que recorrer el array
+    }
+
+    public boolean buscarUser(String userlogin, String passlogin) throws FileNotFoundException, IOException, ClassNotFoundException {
+        FileInputStream archivo = new FileInputStream("archivo.dat");
+        ObjectInputStream entrada = new ObjectInputStream(archivo);
+        listausuarios = (ArrayList) entrada.readObject();
+
+        for (int i = 0; i < listausuarios.size(); i++) {
+            UsuarioPrincipal user = (UsuarioPrincipal) listausuarios.get(i);
+            if (user.getUser().equals(userlogin) && user.getPass().equals(passlogin)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public boolean buscarUsuarioRepetido(String userlogin) throws FileNotFoundException, IOException, ClassNotFoundException {
+        FileInputStream archivo = new FileInputStream("archivo.dat");
+        ObjectInputStream entrada = new ObjectInputStream(archivo);
+        listausuarios = (ArrayList) entrada.readObject();
+        for (int i = 0; i < listausuarios.size(); i++) {
+            UsuarioPrincipal user = (UsuarioPrincipal) listausuarios.get(i);
+            if (user.getUser().equals(userlogin)) {
+                return true;//si esta repetido
+            }
+        }
+        entrada.close();
+        return false;
+    }
+
+    private void guardar() throws FileNotFoundException, IOException {
+        //para guardar el archivo tenemos que escribir una salida
+        FileOutputStream archivo = new FileOutputStream("archivo.dat");
+        //tenemos que definri el buffer de salida del archivo
+        ObjectOutputStream salida = new ObjectOutputStream(archivo);
+
+        //escribirmos los datos del array
+        salida.writeObject(listausuarios);
+        //cerramos el flujo
+        salida.close();
+    }
+
+}
